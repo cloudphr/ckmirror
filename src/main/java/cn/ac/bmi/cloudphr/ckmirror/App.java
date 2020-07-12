@@ -3,6 +3,7 @@
  */
 package cn.ac.bmi.cloudphr.ckmirror;
 
+import cn.ac.bmi.cloudphr.ckmirror.repository.ArchetypeInfoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,11 +20,8 @@ public class App implements CommandLineRunner {
     @Autowired
     private DataSource dataSource;
 
-    CKMHelper ckmHelper = new CKMHelper();
-
-    public String getGreeting() {
-        return "Hello world.";
-    }
+    @Autowired
+    private ArchetypeInfoRepository archetypeInfoRepository;
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(App.class, args);
@@ -39,5 +37,20 @@ public class App implements CommandLineRunner {
         Connection conn = dataSource.getConnection();
         log.info(conn.toString());
         conn.close();
+    }
+
+    public void UpdateDatabase() {
+        CKMHelper.parseCKMRepository();
+        for (ArchetypeInfo info : CKMHelper.archetypeInfoList) {
+            if (archetypeInfoRepository.findByArchetypeID(info.getArchetypeID()) == null) {
+                // 插入这条原型信息
+                // 下载相应的原型到相应的目录
+            } else {
+                if (!info.getUpdatedAt().equals(archetypeInfoRepository.findByArchetypeID(info.getArchetypeID()).getUpdatedAt())) {
+                    // 下载相应的原型到相应的目录
+                }
+                // 更新表中的这条原型信息
+            }
+        }
     }
 }

@@ -14,13 +14,13 @@ public class CKMHelper {
 
   public static final String FORMAT = "EEE, dd MMM yyyy HH:mm:ss zzzz";
 
-  private List<ArchetypeInfo> archetypeInfoList;
-  private List<TemplateInfo> templateInfoList;
+  public static List<ArchetypeInfo> archetypeInfoList;
+  public static List<TemplateInfo> templateInfoList;
 
 
-  public void parseCKMRepository() {
-    archetypeInfoList = null;
-    templateInfoList = null;
+  public static void parseCKMRepository() {
+    CKMHelper.archetypeInfoList = null;
+    CKMHelper.templateInfoList = null;
     try {
       String url = "https://www.openehr.org/ckm/retrieveResources?list=true";
       Document document = Jsoup.connect(url).get();
