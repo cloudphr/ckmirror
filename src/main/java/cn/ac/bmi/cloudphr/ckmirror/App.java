@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -20,8 +19,7 @@ public class App implements CommandLineRunner {
     @Autowired
     private DataSource dataSource;
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    CKMHelper ckmHelper = new CKMHelper();
 
     public String getGreeting() {
         return "Hello world.";
@@ -34,8 +32,6 @@ public class App implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         showConnection();
-        showData_foo();
-        showData_hello();
     }
 
     private void showConnection() throws SQLException {
@@ -43,15 +39,5 @@ public class App implements CommandLineRunner {
         Connection conn = dataSource.getConnection();
         log.info(conn.toString());
         conn.close();
-    }
-
-    private void showData_foo() {
-        jdbcTemplate.queryForList("SELECT * FROM FOO")
-                .forEach(row -> log.info(row.toString()));
-    }
-
-    private void showData_hello() {
-        jdbcTemplate.queryForList("SELECT * FROM hello")
-                .forEach(row -> log.info(row.toString()));
     }
 }

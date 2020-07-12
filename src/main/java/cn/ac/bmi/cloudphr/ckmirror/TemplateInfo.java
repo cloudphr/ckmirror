@@ -2,13 +2,15 @@ package cn.ac.bmi.cloudphr.ckmirror;
 
 import cn.hutool.core.date.DateUtil;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import static cn.ac.bmi.cloudphr.ckmirror.CKMHelper.FORMAT;
 
 @Data
-class TemplateInfo {
+@RequiredArgsConstructor
+public class TemplateInfo {
   private String template;
   private String templateID;
   private String status;
@@ -28,5 +30,24 @@ class TemplateInfo {
     this.assetCid = tds.get(5).text();
     this.ckmPath = CKMHelper.parseHrefFromElement(tds.get(6));
     this.adlPath = CKMHelper.parseHrefFromElement(tds.get(7));
+  }
+
+  public TemplateInfo(
+          String template,
+          String template_id,
+          String status,
+          String created_at,
+          String updated_at,
+          String asset_cid,
+          String ckm_path,
+          String adl_path) {
+    this.template = template;
+    this.templateID = template_id;
+    this.status = status;
+    this.createdAt = created_at;
+    this.updatedAt = updated_at;
+    this.assetCid = asset_cid;
+    this.ckmPath = ckm_path;
+    this.adlPath = adl_path;
   }
 }

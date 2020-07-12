@@ -3,20 +3,17 @@ package cn.ac.bmi.cloudphr.ckmirror;
 
 import cn.hutool.core.date.DateUtil;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 import static cn.ac.bmi.cloudphr.ckmirror.CKMHelper.FORMAT;
 
 @Data
-@Entity
+@RequiredArgsConstructor
 public class ArchetypeInfo {
 
   private String concept;
-  @Id
   private String archetypeID;
   private String description;
   private String status;
@@ -39,5 +36,28 @@ public class ArchetypeInfo {
     this.ckmPath = CKMHelper.parseHrefFromElement(tds.get(7));
     this.adlPath = CKMHelper.parseHrefFromElement(tds.get(8));
     this.xmlPath = CKMHelper.parseHrefFromElement(tds.get(9));
+  }
+
+  public ArchetypeInfo(
+          String concept,
+          String archetype_id,
+          String description,
+          String status,
+          String created_at,
+          String updated_at,
+          String asset_cid,
+          String ckm_path,
+          String adl_path,
+          String xml_path) {
+    this.concept = concept;
+    this.archetypeID = archetype_id;
+    this.description = description;
+    this.status = status;
+    this.createdAt = created_at;
+    this.updatedAt = updated_at;
+    this.assetCid = asset_cid;
+    this.ckmPath = ckm_path;
+    this.adlPath = adl_path;
+    this.xmlPath = xml_path;
   }
 }
