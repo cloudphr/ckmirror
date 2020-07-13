@@ -1,30 +1,34 @@
 package cn.ac.bmi.cloudphr.ckmirror;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-
 public class CKMHelper {
 
   public static final String FORMAT = "EEE, dd MMM yyyy HH:mm:ss zzzz";
   public static final String ARCHETYPES_DIRECTORY =
-          System.getProperty("user.dir") + File.separator +
-                  "openehr" + File.separator +
-                  "ckm" + File.separator +
-                  "archetypes" + File.separator;
+          System.getProperty("user.dir") + File.separator
+                  + "openehr" + File.separator
+                  + "ckm" + File.separator
+                  + "archetypes" + File.separator;
   public static final String TEMPLATES_DIRECTORY =
-          System.getProperty("user.dir") + File.separator +
-                  "openehr" + File.separator +
-                  "ckm" + File.separator +
-                  "templates" + File.separator;
+          System.getProperty("user.dir") + File.separator
+                  + "openehr" + File.separator
+                  + "ckm" + File.separator
+                  + "templates" + File.separator;
 
   public static List<ArchetypeInfo> archetypeInfoList;
   public static List<TemplateInfo> templateInfoList;
@@ -64,7 +68,7 @@ public class CKMHelper {
     }
   }
 
-  public static String parseHrefFromElement(Element element) {
+  public static String parseHrefFromElement(final Element element) {
     String url = null;
 
     if (element != null) {
@@ -81,7 +85,7 @@ public class CKMHelper {
     return url;
   }
 
-  public static void downloadByUrlToFile(String urlPath, String savedFilePath)
+  public static void downloadByUrlToFile(final String urlPath, final String savedFilePath)
           throws Exception {
     URL url = new URL(urlPath);
     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -102,18 +106,18 @@ public class CKMHelper {
     fis.close();
   }
 
-  public static void downloadFromCKM(String urlPath, String id, String postfix) {
+  public static void downloadFromCKM(final String urlPath, final String id, final String postfix) {
     try {
       String downloadFilePath;
       if (postfix == "adl") {
         downloadFilePath =  ARCHETYPES_DIRECTORY + id + "." + postfix;
-      } else if (postfix == "oet"){
+      } else if (postfix == "oet") {
         downloadFilePath =  TEMPLATES_DIRECTORY + id + "." + postfix;
       } else {
         throw new Exception("postfix: " + postfix + "is not supported...");
       }
       CKMHelper.downloadByUrlToFile(urlPath, downloadFilePath);
-    } catch (Exception e){
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }

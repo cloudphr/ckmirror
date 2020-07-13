@@ -53,6 +53,9 @@ etc/tmp/*
 
 ### Database files ###
 db/
+*.db
+openehr/ckm/ckm.sqlite
 
 ### openehr ckm files ###
-openehr/
+*.adl
+*.oet
