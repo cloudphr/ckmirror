@@ -1,6 +1,8 @@
 package cn.ac.bmi.cloudphr.ckmirror;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +15,19 @@ import org.jsoup.select.Elements;
 public class CKMHelper {
 
   public static final String FORMAT = "EEE, dd MMM yyyy HH:mm:ss zzzz";
+  public static final String ARCHETYPES_DIRECTORY =
+          System.getProperty("user.dir") + File.separator +
+                  "openehr" + File.separator +
+                  "ckm" + File.separator +
+                  "archetypes" + File.separator;
+  public static final String TEMPLATES_DIRECTORY =
+          System.getProperty("user.dir") + File.separator +
+                  "openehr" + File.separator +
+                  "ckm" + File.separator +
+                  "templates" + File.separator;
 
   public static List<ArchetypeInfo> archetypeInfoList;
   public static List<TemplateInfo> templateInfoList;
-
 
   public static void parseCKMRepository() {
     CKMHelper.archetypeInfoList = null;
@@ -25,9 +36,9 @@ public class CKMHelper {
       String url = "https://www.openehr.org/ckm/retrieveResources?list=true";
       Document document = Jsoup.connect(url).get();
       Elements tbodies = document.getElementsByTag("tbody");
-      assert tbodies.size() == 2; //一个是原型汇总信息表，一个是模板汇总信息表
+      assert tbodies.size() == 2;
 
-      Element archetypeInfos = tbodies.get(0); //原型汇总信息表
+      Element archetypeInfos = tbodies.get(0);
       Elements trs = archetypeInfos.getElementsByTag("tr");
       if (trs.size() > 1) {
         archetypeInfoList = new ArrayList<>();
@@ -38,7 +49,7 @@ public class CKMHelper {
         //System.out.println(archetype.getAdlPath());
       }
 
-      Element templateInfos = tbodies.get(1); //模板汇总信息表
+      Element templateInfos = tbodies.get(1);
       trs = templateInfos.getElementsByTag("tr");
       if (trs.size() > 1) {
         templateInfoList = new ArrayList<>();
@@ -68,5 +79,42 @@ public class CKMHelper {
     }
 
     return url;
+  }
+
+  public static void downloadByUrlToFile(String urlPath, String savedFilePath)
+          throws Exception {
+    URL url = new URL(urlPath);
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+    int code = conn.getResponseCode();
+    if (code != HttpURLConnection.HTTP_OK) {
+      throw new Exception("Can not read file from url:" + urlPath);
+    }
+    InputStream fis = new BufferedInputStream(conn.getInputStream());
+    File file = new File(savedFilePath);
+    OutputStream toClient = new BufferedOutputStream(new FileOutputStream(file));
+    byte[] buffer = new byte[1024 * 8];
+    int read = 0;
+    while ((read = fis.read(buffer)) != -1) {
+      toClient.write(buffer, 0, read);
+    }
+    toClient.flush();
+    toClient.close();
+    fis.close();
+  }
+
+  public static void downloadFromCKM(String urlPath, String id, String postfix) {
+    try {
+      String downloadFilePath;
+      if (postfix == "adl") {
+        downloadFilePath =  ARCHETYPES_DIRECTORY + id + "." + postfix;
+      } else if (postfix == "oet"){
+        downloadFilePath =  TEMPLATES_DIRECTORY + id + "." + postfix;
+      } else {
+        throw new Exception("postfix: " + postfix + "is not supported...");
+      }
+      CKMHelper.downloadByUrlToFile(urlPath, downloadFilePath);
+    } catch (Exception e){
+      e.printStackTrace();
+    }
   }
 }

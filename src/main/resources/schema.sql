@@ -24,7 +24,7 @@ create table template_info
     status varchar(512),
     created_at varchar(512),
     updated_at varchar(512),
-    asse_cid varchar(512),
+    asset_cid varchar(512),
     ckm_path varchar(512),
     adl_path varchar(512)
 )

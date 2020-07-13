@@ -25,8 +25,10 @@ public class TemplateInfo {
     this.template = tds.get(0).text();
     this.templateID = tds.get(1).text();
     this.status = tds.get(2).text();
-    this.createdAt = DateUtil.parse(tds.get(3).text(), FORMAT).toString();
-    this.updatedAt = DateUtil.parse(tds.get(4).text(), FORMAT).toString();
+    //this.createdAt = DateUtil.parse(tds.get(3).text(), FORMAT).toString();
+    this.createdAt = tds.get(3).text();
+    //this.updatedAt = DateUtil.parse(tds.get(4).text(), FORMAT).toString();
+    this.updatedAt = tds.get(4).text();
     this.assetCid = tds.get(5).text();
     this.ckmPath = CKMHelper.parseHrefFromElement(tds.get(6));
     this.adlPath = CKMHelper.parseHrefFromElement(tds.get(7));

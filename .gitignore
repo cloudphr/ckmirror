@@ -53,3 +53,6 @@ etc/tmp/*
 
 ### Database files ###
 db/
+
+### openehr ckm files ###
+openehr/

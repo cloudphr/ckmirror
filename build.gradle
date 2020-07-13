@@ -30,6 +30,7 @@ dependencies {
 
     compile group: 'org.jsoup', name: 'jsoup', version: '1.13.1'
     compile group: 'cn.hutool', name: 'hutool-all', version: '5.3.8'
+    compile 'me.tongfei:progressbar:0.8.1'
 
     implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.3.1.RELEASE'

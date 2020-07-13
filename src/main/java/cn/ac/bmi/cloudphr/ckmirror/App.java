@@ -4,6 +4,7 @@
 package cn.ac.bmi.cloudphr.ckmirror;
 
 import cn.ac.bmi.cloudphr.ckmirror.repository.ArchetypeInfoRepository;
+import cn.ac.bmi.cloudphr.ckmirror.repository.TemplateInfoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +15,8 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import me.tongfei.progressbar.*;
+
 @SpringBootApplication
 @Slf4j
 public class App implements CommandLineRunner {
@@ -23,13 +26,24 @@ public class App implements CommandLineRunner {
     @Autowired
     private ArchetypeInfoRepository archetypeInfoRepository;
 
+    @Autowired
+    private TemplateInfoRepository templateInfoRepository;
+
     public static void main(String[] args) throws Exception {
         SpringApplication.run(App.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
+        App app = new App();
+        app.getGreeting();
         showConnection();
+        System.out.println(System.getProperty("user.dir"));
+        updateDatabase();
+    }
+
+    public String getGreeting() {
+        return "Hello world.";
     }
 
     private void showConnection() throws SQLException {
@@ -39,18 +53,47 @@ public class App implements CommandLineRunner {
         conn.close();
     }
 
-    public void UpdateDatabase() {
+    public void updateDatabase() {
         CKMHelper.parseCKMRepository();
-        for (ArchetypeInfo info : CKMHelper.archetypeInfoList) {
-            if (archetypeInfoRepository.findByArchetypeID(info.getArchetypeID()) == null) {
-                // 插入这条原型信息
-                // 下载相应的原型到相应的目录
-            } else {
-                if (!info.getUpdatedAt().equals(archetypeInfoRepository.findByArchetypeID(info.getArchetypeID()).getUpdatedAt())) {
-                    // 下载相应的原型到相应的目录
+        updateArchetypes();
+        updateTemplates();
+    }
+
+    public void updateArchetypes () {
+        log.info("Archetypes update process started...");
+        for (ArchetypeInfo info : ProgressBar.wrap(CKMHelper.archetypeInfoList, "Traversing")) {
+            ArchetypeInfo archetypeInfo = archetypeInfoRepository.findByArchetypeID(info.getArchetypeID());
+            if (archetypeInfo == null || !info.getUpdatedAt().equals(archetypeInfo.getUpdatedAt())) {
+                //log.info("start downloading " + info.getArchetypeID() + "...");
+                CKMHelper.downloadFromCKM(info.getAdlPath(), info.getArchetypeID(), "adl");
+                //log.info("finish downloading " + info.getArchetypeID() + "successfully.");
+                if (archetypeInfo != null) {
+                    //log.info("delete archetypeInfo whose archetype_id is: " + info.getArchetypeID());
+                    archetypeInfoRepository.deleteByArchetypeID(info.getArchetypeID());
                 }
-                // 更新表中的这条原型信息
+                //log.info("insert into archetype_info: " + info.getArchetypeID());
+                archetypeInfoRepository.insertOne(info);
             }
         }
+        log.info("Archetypes update process finished...");
+    }
+
+    public void updateTemplates () {
+        log.info("Templates update process started...");
+        for (TemplateInfo info : ProgressBar.wrap(CKMHelper.templateInfoList, "Traversing")) {
+            TemplateInfo templateInfo = templateInfoRepository.findByTemplateID(info.getTemplateID());
+            if (templateInfo == null || !info.getUpdatedAt().equals(templateInfo.getUpdatedAt())) {
+                //log.info("start downloading " + info.getTemplateID() + "...");
+                CKMHelper.downloadFromCKM(info.getAdlPath(), info.getTemplateID(), "oet");
+                //log.info("finish downloading " + info.getTemplateID() + "successfully.");
+                if (templateInfo != null) {
+                    //log.info("delete templateInfo whose template_id is: " + info.getTemplateID());
+                    templateInfoRepository.deleteByTemplateID(info.getTemplateID());
+                }
+                //log.info("insert into template_info: " + info.getTemplateID());
+                templateInfoRepository.insertOne(info);
+            }
+        }
+        log.info("Templates update process finished...");
     }
 }
