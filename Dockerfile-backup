@@ -1,0 +1,16 @@
+FROM gradle:jdk8 as builder
+
+COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN gradle build
+
+FROM openjdk:8-jre-slim
+COPY --from=builder /home/gradle/src/build/distributions/ckmirror.tar /app/
+RUN apt-get update && apt-get install -y cron
+ADD /home/gradle/src/_linux/var/spool/cron/crontabs/gradlecron /var/spool/cron/crontabs/gradlecron
+RUN chown -R root:crontab /var/spool/cron/crontabs/rootcron \
+&& chmod 600 /var/spool/cron/crontabs/rootcron
+WORKDIR /app
+RUN tar -xvf ckmirror.tar
+WORKDIR /app/ckmirror
+CMD bin/ckmirror
