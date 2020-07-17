@@ -1,2 +1,2 @@
-
-* * * * * /app/ckmirror/bin/ckmirror
+*/1 * * * * date >> "/var/log/cron.log"
+*/1 * * * * export JAVA_HOME=/usr/local/openjdk-8; /app/ckmirror/bin/ckmirror >> "/var/log/cron.log"
