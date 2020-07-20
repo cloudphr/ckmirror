@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>1eda0d96-c465-415b-b623-bb99fe845f34</id>
+  <name>Patient's background leading to suspicion of DR</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Aitor Eguzkitza</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Universidad Pública de Navarra - Complejo Hospitalario de Navarra</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2016-07-25</value>
+      </item>
+    </original_author>
+    <other_contributors>
+      <item>Jose Andonegui, Complejo hospitalario de Navarra (CHN), jose.andonegui.navarro@cfnavarra.es</item>
+      <item>Luis Serrano, Universidad Pública de Navarra (UPNA), lserrano@unavarra.es</item>
+      <item>Jesús D. Trigo, Universidad Pública de Navarra (UPNA), jesusdaniel.trigo@unavarra.es</item>
+    </other_contributors>  
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Evaluate the background of patients with suspicion of diabetic retinopathy.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.patients_background.v0" concept_name="Patients background">
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.reason_for_encounter.v1" concept_name="Reason for encounter" path="/items[at0006]">
+      <Rule path="/data[at0001]/items[at0002]">
+        <constraint xsi:type="textConstraint">
+          <includedValues>Diabetes diagnosed by an endocrinologist</includedValues>
+          <includedValues>Routine primary care examination</includedValues>
+          <includedValues>General ophthalmology consultation</includedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0004]" default="Suspicion of diabetic retinopathy." />
+    </Item>
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" concept_name="Clinical Synopsis" path="/items[at0007]" />
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1" concept_name="Problem/Diagnosis" path="/items[at0008]">
+      <Rule path="/data[at0001]/items[at0002]">
+        <constraint xsi:type="textConstraint">
+          <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Findings in posterior pole of eye" />
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0009]" default="Clinical findings leading to diagnosis of diabetic retinopathy." />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.diagnostic_criteria_dr.v0" concept_name="Diagnostic criteria DR" path="/data[at0001]/items[at0043]" />
+    </Item>
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Story/History" path="/items[at0005]">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.symptom_sign.v1" concept_name="Symptom/Sign" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]">
+        <Rule path="/items[at0035]" max="0" />
+        <Rule path="/items[at0186]" max="0" />
+        <Rule path="/items[at0018]" max="0" />
+        <Rule path="/items[at0165]" max="0" />
+        <Rule path="/items[at0161]" max="0" />
+      </Items>
+    </Item>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.patients_background.v0">
+    <digest id="MD5-CAM-1.0.1">EF30C8AA60E6EDF91F5237614E2B86BF</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.reason_for_encounter.v1">
+    <digest id="MD5-CAM-1.0.1">C6E34BA9A38D4EEE109F6033C16472CC</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1">
+    <digest id="MD5-CAM-1.0.1">2D066E7C501C2DAEC625DEE2ECD81DF4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1">
+    <digest id="MD5-CAM-1.0.1">88AF7BC619F0DF958D2F00293756F398</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.diagnostic_criteria_dr.v0">
+    <digest id="MD5-CAM-1.0.1">B3C9DEFCF4C51DF03638B3307B83475A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.story.v1">
+    <digest id="MD5-CAM-1.0.1">1A6AFF556A3135480517C4E830985332</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.symptom_sign.v1">
+    <digest id="MD5-CAM-1.0.1">D99FDDA78E05025ED49B9F7502795394</digest>
+  </integrity_checks>
+</template>

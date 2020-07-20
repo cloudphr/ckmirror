@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>8e0fbf23-cfa1-4533-836f-9e8074f306f2</id>
+  <name>RCPA Breast cancer histopathology 1st Edition 2010</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.lab_test-histopathology.v1" concept_name="Histopathology" max="1" name="RCPA Breast cancer histopathology 1st Edition 2010">
+    <Rule path="/data[at0001]" hide_on_form="true" />
+    <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" max="0" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0077]" max="0" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0073]" max="0" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0.86]" name="Macroscopic" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0.86]/items[at0.76]" max="1" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0.87]" name="Microscopic" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0.87]/items[at0.81]" max="1" hide_on_form="true" name="Primary lesion" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0.87]/items[at0.81]/items[at0.82]" name="Comments" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0.87]/items[at0.89]" max="0" />
+    <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]" max="0" />
+    <Rule path="/protocol[at0004]" hide_on_form="true" />
+    <Rule path="/protocol[at0004]/items[at0075]" max="0" />
+    <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.specimen.v0" concept_name="Specimen" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0.86]/items[at0.76]/items[at0.79]" name="S2.08 Specimen">
+      <Rule path="/items[at0007]" name="CS2.08a Specimen type" />
+      <Rule path="/items[at0039]" max="0" />
+      <Rule path="/items[at0046]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.anatomical_location-precise.v1" concept_name="Precise anatomical location" path="/items[at0013]">
+        <Rule path="/items[at0005]/items[at0001]" max="0" />
+        <Rule path="/items[at0005]/items[at0028]" max="0" />
+        <Rule path="/items[at0005]/items[at0024]" max="0" />
+        <Rule path="/items[at0020]" max="0" />
+      </Items>
+    </Items>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.lab_test-histopathology.v1">
+    <digest id="MD5-CAM-1.0.1">1AEFA309936CAB1544A01C01BA5FE6DA</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.specimen.v0">
+    <digest id="MD5-CAM-1.0.1">6D55513D75F8DFD6DD7FAF6DED45C69B</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.anatomical_location-precise.v1">
+    <digest id="MD5-CAM-1.0.1">0AC45BF7B611B1F3CEE405A38C69A0BB</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1">
+    <digest id="MD5-CAM-1.0.1">12CEE2FA9FD1CD14585E03BD0418C2BA</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.microscopy_breast_carcinoma.v1">
+    <digest id="MD5-CAM-1.0.1">41E10C136EAB6E4ED748035BF6D9F697</digest>
+  </integrity_checks>
+</template>

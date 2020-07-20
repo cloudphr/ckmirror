@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>6024756c-b9e9-48de-8d8a-bafc65b0867f</id>
+  <name>ODL Report Issues</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Report ODLs that are self-monited by a patient</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.empower_odl.v0" concept_name="ODL (EMPOWER)" name="Odls">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.story.v1" concept_name="Story/History" max="1" path="/content[at0002]" name="Open Issue">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.issue.v1" concept_name="Issue presented by a person" max="1" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]">
+        <Rule path="/items[at0002]" name="Comment" />
+      </Items>
+    </Content>
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.medication.v1" concept_name="Medication action" max="1" path="/content[at0003]" name="Medication">
+      <Rule path="/description[at0017]/items[at0020]" name="Medication name" />
+      <Rule path="/description[at0017]/items[at0033]" max="1" name="Dosage">
+        <constraint xsi:type="textConstraint">
+          <includedValues>as needed</includedValues>
+          <includedValues>regularly</includedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/description[at0017]/items[at0021]" max="0" />
+      <Rule path="/description[at0017]/items[at0025]" max="0" />
+      <Rule path="/description[at0017]/items[at0036]" max="0" />
+      <Rule path="/protocol[at0030]" hide_on_form="true" />
+      <Rule path="/protocol[at0030]/items[at0026]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0040]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0031]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0037]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0032]" max="0" />
+      <Rule path="/protocol[at0030]/items[at0038]" max="0" />
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v0" concept_name="*Problem/diagnosis(en)" path="/content[at0004]">
+      <Rule path="/data[at0001]/items[at0002]" name="Problem">
+        <constraint xsi:type="textConstraint">
+          <includedValues>Blurred vision, my glasses are no longer sufficient for reading</includedValues>
+          <includedValues>Digestive disorders (diarrhea, constipation, bloating, spasms, nausea, vomiting)</includedValues>
+          <includedValues>Disturbed sexual function</includedValues>
+          <includedValues>Dizziness</includedValues>
+          <includedValues>Dry mouth</includedValues>
+          <includedValues>Fast heart rate for no apparent reason</includedValues>
+          <includedValues>Frequent urination</includedValues>
+          <includedValues>Itchy skin</includedValues>
+          <includedValues>Muscular cramps (calves, thigh)</includedValues>
+          <includedValues>Pain (head, chest, legs, feet, soles, thighs)</includedValues>
+          <includedValues>Palpitation</includedValues>
+          <includedValues>Restless legs</includedValues>
+          <includedValues>Sleep apnea</includedValues>
+          <includedValues>Snoring</includedValues>
+          <includedValues>Strong sweating</includedValues>
+          <includedValues>Strong thirstiness</includedValues>
+          <includedValues>Tremble</includedValues>
+          <includedValues>Weakness, tiredness, powerlessness</includedValues>
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/items[at0009]" max="0" />
+      <Rule path="/data[at0001]/items[at0012]" max="0" />
+      <Rule path="/data[at0001]/items[at0077]" max="0" />
+      <Rule path="/data[at0001]/items[at0003]" max="0" />
+      <Rule path="/data[at0001]/items[at0005]" max="0" />
+      <Rule path="/data[at0001]/items[at0072]" max="0" />
+      <Rule path="/data[at0001]/items[at0030]" max="0" />
+      <Rule path="/data[at0001]/items[at0073]" max="0" />
+      <Rule path="/data[at0001]/items[at0069]" name="Comment" />
+      <Rule path="/protocol[at0032]" hide_on_form="true" />
+      <Rule path="/protocol[at0032]/items[at0070]" max="0" />
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.empower_odl.v0">
+    <digest id="MD5-CAM-1.0.1">F97815033DDF6ED3BC2EB4298F9B9895</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.story.v1">
+    <digest id="MD5-CAM-1.0.1">F295347D6244F2874963F63D1ACE97DF</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.issue.v1">
+    <digest id="MD5-CAM-1.0.1">7BB46BA6BD3DEBEF2C76BDAC72FB8A5A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.medication.v1">
+    <digest id="MD5-CAM-1.0.1">5785AFB10AEB74CC6D672E75B88908D3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v0">
+    <digest id="MD5-CAM-1.0.1">6AD1B2F39C53F04BE65FF69FBE89A695</digest>
+  </integrity_checks>
+</template>

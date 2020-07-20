@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>fde9a937-9b79-4acd-b3e2-e02f7d9fe77f</id>
+  <name>Image test analysis for DR</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Aitor Eguzkitza</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Universidad Pública de Navarra - Complejo Hospitalario de Navarra</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2016-07-25</value>
+      </item>
+    </original_author>
+    <other_contributors>
+      <item>Jose Andonegui, Complejo hospitalario de Navarra (CHN), jose.andonegui.navarro@cfnavarra.es</item>
+      <item>Luis Serrano, Universidad Pública de Navarra (UPNA), lserrano@unavarra.es</item>
+      <item>Jesús D. Trigo, Universidad Pública de Navarra (UPNA), jesusdaniel.trigo@unavarra.es</item>
+    </other_contributors>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Manage the overall assessment of diagnostic tests to identify the slightest sign of diabetic retinopathy.</purpose>
+      <use>To identify and register the signs of glaucomatous progression for patients diagnosed with chronic glaucoma. The diagnostic tests would be examined jointly, even the acquisitions corresponding to different consultations successive in time can lead to relevant findings about glaucoma progression.</use>
+      <misuse>Do not use this template to register data related with acquisition of diagnostic tests.</misuse>
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.image_test_analysis.v0" concept_name="Image test analysis">
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.fundoscopic_examination.v1" concept_name="Fundoscopic examination of eyes" path="/items[at0001]">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]">
+        <constraint xsi:type="textConstraint">
+          <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Findings in posterior pole of eye" />
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0136]/items[at0051]" max="0" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]" hide_on_form="true" />
+      <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
+      <Rule path="/protocol[at0028]" hide_on_form="true" />
+      <Rule path="/protocol[at0028]/items[at0029]" max="0" />
+      <Rule path="/protocol[at0028]/items[at0067]" max="0" />
+      <Rule path="/protocol[at0028]/items[at0072]" max="0" />
+      <Rule path="/protocol[at0028]/items[at0073]" max="0" />
+    </Item>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.image_test_analysis.v0">
+    <digest id="MD5-CAM-1.0.1">E25495BF0F0078F70D2AEE3F135396E6</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.fundoscopic_examination.v1">
+    <digest id="MD5-CAM-1.0.1">54CEC25E4EBE02E57C1B9531D64B70F1</digest>
+  </integrity_checks>
+</template>

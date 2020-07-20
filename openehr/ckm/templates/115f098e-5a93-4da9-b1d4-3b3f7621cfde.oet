@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>115f098e-5a93-4da9-b1d4-3b3f7621cfde</id>
+    <name>Pulse item R2</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Heather Leslie</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Atomica Informatics</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heather.leslie@atomicainformatics.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-07-13</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>fb56ac60ca8f874f6341b49b67416868</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>CE93F29E7E2C9C4ADFA67B41908C52AE</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-OBSERVATION.pulse.v2"
+        concept_name="Pulse/Heart beat" name="Pulse"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:OBSERVATION">
+        <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1005]"/>
+        <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at0005]"/>
+        <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1055]"/>
+        <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1030]"/>
+        <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1022]"/>
+        <Rule name="Rhythm" path="/data[at0002]/events[at0003]/data[at0001]/items[at1023]">
+            <nameConstraint>
+                <excludedValues>local::at1057</excludedValues>
+            </nameConstraint>
+        </Rule>
+        <Rule max="0" path="/data[at0002]/events[at0003]/data[at0001]/items[at1059]"/>
+        <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at0013]"/>
+        <Rule max="0" path="/data[at0002]/events[at0003]/state[at0012]/items[at1018]"/>
+        <Rule max="0" path="/data[at0002]/events[at1036]"/>
+        <Rule clone="true" name="structure" path="/data[at0002]/events[at1036]/data[at0001]"/>
+        <Rule clone="true" name="List" path="/data[at0002]/events[at1036]/state[at0012]"/>
+        <Rule max="0" path="/protocol[at0010]/items[at1019]"/>
+        <Rule max="0" path="/protocol[at0010]/items[at1037]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Coded_text</includedTypes>
+                <includedTypes>Text</includedTypes>
+            </constraint>
+        </Rule>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-OBSERVATION.pulse.v2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">CE93F29E7E2C9C4ADFA67B41908C52AE</digest>
+    </integrity_checks>
+</template>

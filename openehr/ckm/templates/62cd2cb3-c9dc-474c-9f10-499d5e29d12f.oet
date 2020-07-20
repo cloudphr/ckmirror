@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>62cd2cb3-c9dc-474c-9f10-499d5e29d12f</id>
+    <name>Substance use summary item R2</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Heather Leslie</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Atomica Informatics</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heather.leslie@atomicainformatics.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-07-13</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>7d1ebd6c6f4ab804bc22a576706d66ec</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>86CDFC31A6DA3187259522FB7C792BB4</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-EVALUATION.substance_use_summary.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule max="0" path="/data[at0001]/items[at0008]"/>
+        <Rule max="0" path="/data[at0001]/items[at0009]"/>
+        <Rule max="0" path="/data[at0001]/items[at0010]"/>
+        <Rule max="0" path="/data[at0001]/items[at0011]">
+            <constraint xsi:type="tem:quantityConstraint"/>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0012]"/>
+        <Rule max="0" path="/data[at0001]/items[at0030]"/>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.substance_use_summary.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">86CDFC31A6DA3187259522FB7C792BB4</digest>
+    </integrity_checks>
+</template>

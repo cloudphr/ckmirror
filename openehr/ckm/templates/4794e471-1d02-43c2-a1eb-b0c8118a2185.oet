@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>4794e471-1d02-43c2-a1eb-b0c8118a2185</id>
+    <name>Respiration item R2</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Heather Leslie</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Atomica Informatics</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heather.leslie@atomicainformatics.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-07-13</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>2254c365d9029f964d8714c136341a6d</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>7CC874C49B06D0C3607301BA40C0C31C</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-OBSERVATION.respiration.v2"
+        concept_name="Respiration" name="Respiration item R2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:OBSERVATION">
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0062]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0016]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0009]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/data[at0003]/items[at0070]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/state[at0022]/items[at0065]"/>
+        <Rule max="0" path="/data[at0001]/events[at0002]/state[at0022]/items[at0056]"/>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-OBSERVATION.respiration.v2"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">7CC874C49B06D0C3607301BA40C0C31C</digest>
+    </integrity_checks>
+</template>

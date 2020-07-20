@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>490a3d11-9022-4fd3-b84e-938256daa316</id>
+  <name>Incisional glaucoma surgery</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Aitor Eguzkitza</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Universidad Pública de Navarra - Complejo Hospitalario de Navarra</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2016-07-24</value>
+      </item>
+    </original_author>
+    <other_contributors>
+      <item>Jose Andonegui, Complejo hospitalario de Navarra (CHN), jose.andonegui.navarro@cfnavarra.es</item>
+      <item>Luis Serrano, Universidad Pública de Navarra (UPNA), lserrano@unavarra.es</item>
+      <item>Jesús D. Trigo, Universidad Pública de Navarra (UPNA), jesusdaniel.trigo@unavarra.es</item>
+    </other_contributors>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>To schedule and register the outcomes of the therapeutic procedure which involves incisional glaucoma surgery to treat chronic glaucoma.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.surgery_procedure.v0" concept_name="Ophthalmic surgical procedure">
+    <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-procedure.v0" concept_name="Procedure request" path="/items[at0001]">
+      <Rule path="/activities[at0001]/description[at0009]/items[at0121.1]">
+        <constraint xsi:type="textConstraint">
+          <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Glaucoma treatments" />
+        </constraint>
+      </Rule>
+      <Rule path="/activities[at0001]/description[at0009]/items[at0148.1]" default="Ophthalmic surgical procedure" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0062.1]" default="Medical or laser treatment appear unlikely to maintain sight in the glaucomatous eye." />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0147]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0076]" max="0" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0078]" max="0" />
+    </Item>
+    <Item xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.procedure.v1" concept_name="Procedure" path="/items[at0002]">
+      <Rule path="/description[at0001]/items[at0002]">
+        <constraint xsi:type="textConstraint">
+          <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Glaucoma treatments" />
+        </constraint>
+      </Rule>
+      <Rule path="/description[at0001]/items[at0067]" default="Ophthalmic surgical procedure" />
+      <Rule path="/description[at0001]/items[at0014]" max="0" />
+    </Item>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.surgery_procedure.v0">
+    <digest id="MD5-CAM-1.0.1">E4B6946D1D6B7F00ADA61A23F620AD58</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request-procedure.v0">
+    <digest id="MD5-CAM-1.0.1">52B8333D9A8C5300DA91B7581DAB7005</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.procedure.v1">
+    <digest id="MD5-CAM-1.0.1">232D4A2B8E6A250F5D3A715FBE564726</digest>
+  </integrity_checks>
+</template>

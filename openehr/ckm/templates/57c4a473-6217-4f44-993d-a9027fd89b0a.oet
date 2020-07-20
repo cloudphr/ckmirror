@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>57c4a473-6217-4f44-993d-a9027fd89b0a</id>
+    <name>Personal safety summary item R2</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Heather Leslie</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Atomica Informatics</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heather.leslie@atomicainformatics.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-07-13</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>5bb2828929f31edbaf69ce27ee0497c0</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>E7FFE10958B6E5C01196F4D0ED63FDD3</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-EVALUATION.personal_safety_summary.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION"/>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.personal_safety_summary.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E7FFE10958B6E5C01196F4D0ED63FDD3</digest>
+    </integrity_checks>
+</template>

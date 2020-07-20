@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>fe089339-0ad5-4aad-a71e-5dfdd69c67d8</id>
+    <name>Examination of the heart item R2</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Heather Leslie</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Atomica Informatics</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heather.leslie@atomicainformatics.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-07-13</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>F9DDA174FB0F169B9F8D4F1610BA0BDA</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>57965185c62088ed01a8184113038c05</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-CLUSTER.exam-heart.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:CLUSTER">
+        <Rule max="0" path="/items[at0012]"/>
+        <Rule max="0" path="/items[at0002]"/>
+        <Rule max="0" path="/items[at0006]"/>
+        <Rule max="0" path="/items[at0007]"/>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.exam-heart.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">F9DDA174FB0F169B9F8D4F1610BA0BDA</digest>
+    </integrity_checks>
+</template>

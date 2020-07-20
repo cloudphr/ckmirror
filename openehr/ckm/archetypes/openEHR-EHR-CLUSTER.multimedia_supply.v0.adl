@@ -1,0 +1,387 @@
+﻿archetype (adl_version=1.4; uid=b0ab7ee5-29a8-499f-9d02-3240ec488691)
+	openEHR-EHR-CLUSTER.multimedia_supply.v0
+
+concept
+	[at0000]	-- Multimedia supply
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["name"] = <"Ramona Wellmann">
+				["organisation"] = <"Medizinische Hochschule Hannover">
+				["email"] = <"wellmann.ramona@mh-hannover.de">
+			>
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			author = <
+				["name"] = <"John Tore Valand">
+				["organisation"] = <"Helse Bergen HF, Norway">
+				["email"] = <"john.tore.valand@helse-bergen.no">
+			>
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			author = <
+				["name"] = <"Fernanda Maia Ewerton">
+				["organisation"] = <"Core Consulting">
+				["email"] = <"fernanda.maiaewerton@gmail.com">
+			>
+			accreditation = <"Hospital Alemão Oswaldo Cruz (HAOC)">
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Atomica Informatics">
+		["email"] = <"heather.leslie@atomicainformatics.com">
+		["date"] = <"2019-12-10">
+	>
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Dokumentation von Metadaten zu multimedialen klinischen Daten, die nicht im Multimedia-Datentyp erfasst werden.">
+			use = <"Zur Dokumentation von Metadaten zu multimedialen klinischen Daten, die nicht im Multimedia-Datentyp erfasst werden.">
+			keywords = <"Bild", "Audio", "Ton", "Text", "Video", "Videosequenz", "Anwendung", "Fotografie", "Animation", "Grafik">
+			misuse = <"">
+			copyright = <"© openEHR Foundation">
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å registrere metadata om en multimediarepresentasjon av kliniske data som ikke er dekket av kun datatypen Multimedia.">
+			use = <"Brukes for å registrere ytterligere metadata om en multimediarepresentasjon av kliniske data som ikke er dekket av kun datatypen Mulitmedia.">
+			keywords = <"bilde", "lyd", "tekst", "video", "applikasjon">
+			misuse = <"">
+			copyright = <"© openEHR Foundation">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Para gravar detalhes de metadados sobre uma representação multimídia dos dados clínicos não capturados usando o tipo de dado de multimídia sozinho.">
+			use = <"Usado para gravar metadados adicionais sobre uma representação multimídia do dado clínico que não é capturado usando o tipo de dado multimídia sozinho.">
+			keywords = <"imagem", "áudio", "texto", "vídeo", "aplicação">
+			misuse = <"">
+			copyright = <"© openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about text, audio, images, animations, video and interactive content that is supplied to an individual or their carer as part of the provision of healthcare.">
+			use = <"Use to record details about text, audio, images, animations, video and interactive content that is supplied to an individual or their carer as part of the provision of healthcare.
+
+Examples include but are not limited to:
+- A book; 
+- A patient-education leaflet;
+- A mobile application;
+- A website or part of a website; 
+- A podcast; or
+- An instructional video.
+
+The 'Content' data element allows for the multimedia content to be captured and stored using the Multimedia data type, or to be referenced elsewhere using the URI data type.
+
+If more than one resource is supplied as part of a single activity, use one instance of this archetype to represent each resource.
+
+The context of each resource should be contained within the parent archetype. For example: details about healthcare education material provided as part of a course will be captured within the ACTION.health_education archetype.">
+			keywords = <"image", "audio", "text", "video", "application", "file">
+			misuse = <"Not to be used to represent multimedia that is generated or captured during provision of healthcare - use CLUSTER.multimedia_source for this purpose.">
+			copyright = <"© openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"in_development">
+	other_contributors = <"Vebjorn Arntzen, Oslo University Hospital, Norway (openEHR Editor)", "Silje Ljosland Bakke, Nasjonal IKT HF, Norway (openEHR Editor)", "Heather Leslie, Atomica Informatics, Australia (openEHR Editor)", "Ian McNicoll, freshEHR Clinical Informatics, United Kingdom", "John Tore Valand, Helse Bergen, Norway (openEHR Editor)">
+	other_details = <
+		["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.">
+		["custodian_organisation"] = <"openEHR Foundation">
+		["references"] = <"FHIR Resource Media: HL7 [Internet]; [cited 2019 Dec 10]. Available from https://www.hl7.org/fhir/media.html.">
+		["current_contact"] = <"Heather Leslie, Atomica Informatics, heather.leslie@atomicainformatics.com">
+		["original_namespace"] = <"org.openehr">
+		["original_publisher"] = <"openEHR Foundation">
+		["custodian_namespace"] = <"org.openehr">
+		["MD5-CAM-1.0.1"] = <"15D1FF36F8098C3AC1ACD5354CBDB322">
+		["build_uid"] = <"f634a7ba-ccba-4e72-986f-0ecccacd470b">
+		["revision"] = <"0.0.1-alpha">
+	>
+
+definition
+	CLUSTER[at0000] matches {    -- Multimedia supply
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {0..1} matches {    -- Resource name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {    -- Identifier
+				value matches {
+					DV_IDENTIFIER matches {*}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {    -- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {    -- Type of media
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..1} matches {    -- Content
+				value matches {
+					DV_MULTIMEDIA matches {*}
+					DV_URI matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0012] occurrences matches {0..*} matches {    -- Author
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {    -- Published
+				value matches {
+					DV_DATE_TIME matches {*}
+					DV_INTERVAL<DV_DATE_TIME> matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {    -- Authored
+				value matches {
+					DV_DATE_TIME matches {*}
+					DV_INTERVAL<DV_DATE_TIME> matches {*}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {    -- Version
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0013] occurrences matches {0..*} matches {    -- Additional details
+				include
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {    -- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Multimedia supply">
+					description = <"A multimedia resource that is supplied to an individual as part of the provision of healthcare.">
+				>
+				["at0001"] = <
+					text = <"Content">
+					description = <"Digital representation of the resource.">
+					comment = <"The actual content provided can be captured and stored using the Multimedia data type. For example: RTF or PDF for a document; JPG for an image; MP4 for a video; or WAV for an audio file. If the content is located elsewhere the external location can be referenced using the URI data type.">
+				>
+				["at0002"] = <
+					text = <"Resource name">
+					description = <"Name or title of the multimedia resource.">
+				>
+				["at0004"] = <
+					text = <"Authored">
+					description = <"The time, date, partial date or period when the resource was created or authored.">
+				>
+				["at0005"] = <
+					text = <"Description">
+					description = <"Narrative description about the resource.">
+				>
+				["at0007"] = <
+					text = <"Comment">
+					description = <"Additional narrative about the multimedia supply not captured in other fields.">
+				>
+				["at0010"] = <
+					text = <"Identifier">
+					description = <"Identifier for the resource.">
+				>
+				["at0012"] = <
+					text = <"Author">
+					description = <"Details about the individual or organisation who created or authored the resource.">
+				>
+				["at0013"] = <
+					text = <"Additional details">
+					description = <"Further details about the multimedia supply.">
+				>
+				["at0014"] = <
+					text = <"Published">
+					description = <"The time, date, partial date or period when the resource was published.">
+				>
+				["at0015"] = <
+					text = <"Version">
+					description = <"The version or edition of the resource.">
+				>
+				["at0016"] = <
+					text = <"Type of media">
+					description = <"The type of material provided.">
+					comment = <"For example: a book; brochure; patient-education leaflet; website; mobile application; video; or podcast.">
+				>
+			>
+		>
+		["pt-br"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Media provision (en)">
+					description = <"Detalhes sobre a representação multimídia dos dados clínicos.">
+				>
+				["at0001"] = <
+					text = <"*Content (en)">
+					description = <"*Digital representation of the resource. (en)">
+					comment = <"*The actual content provided can be captured and stored using the Multimedia data type. For example: RTF or PDF for a document; JPG for an image; MP4 for a video; or WAV for an audio file. If the content is located elsewhere the external location can be referenced using the URI data type. (en)">
+				>
+				["at0002"] = <
+					text = <"*Resource name (en)">
+					description = <"*Name or title of the multimedia resource. (en)">
+				>
+				["at0004"] = <
+					text = <"*Authored (en)">
+					description = <"*The time, date, partial date or period when the resource was generated. (en)">
+				>
+				["at0005"] = <
+					text = <"Descrição">
+					description = <"*Narrative description about the resource. (en)">
+				>
+				["at0007"] = <
+					text = <"*Comment (en)">
+					description = <"*Additional narrative about the multimedia supply not captured in other fields. (en)">
+				>
+				["at0010"] = <
+					text = <"*Identifier (en)">
+					description = <"*Identifier for the resource. (en)">
+				>
+				["at0012"] = <
+					text = <"*Author (en)">
+					description = <"*Details about the individual or organisation that generated or authored the resource. (en)">
+				>
+				["at0013"] = <
+					text = <"*Additional details (en)">
+					description = <"*Further details about the multimedia supply. (en)">
+				>
+				["at0014"] = <
+					text = <"*Published (en)">
+					description = <"*The time, date, partial date or period when the resource was published. (en)">
+				>
+				["at0015"] = <
+					text = <"*Version (en)">
+					description = <"*The version or edition of the resource. (en)">
+				>
+				["at0016"] = <
+					text = <"*Type of media (en)">
+					description = <"*The type of material provided. (en)">
+					comment = <"*For example: a book; brochure; patient-education leaflet; website; mobile application; video; or podcast. (en)">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Media provision (en)">
+					description = <"Details zur multimedialen Darstellung der klinischen Daten.">
+				>
+				["at0001"] = <
+					text = <"*Content (en)">
+					description = <"*Digital representation of the resource. (en)">
+					comment = <"*The actual content provided can be captured and stored using the Multimedia data type. For example: RTF or PDF for a document; JPG for an image; MP4 for a video; or WAV for an audio file. If the content is located elsewhere the external location can be referenced using the URI data type. (en)">
+				>
+				["at0002"] = <
+					text = <"*Resource name (en)">
+					description = <"*Name or title of the multimedia resource. (en)">
+				>
+				["at0004"] = <
+					text = <"*Authored (en)">
+					description = <"*The time, date, partial date or period when the resource was generated. (en)">
+				>
+				["at0005"] = <
+					text = <"Beschreibung">
+					description = <"*Narrative description about the resource. (en)">
+				>
+				["at0007"] = <
+					text = <"*Comment (en)">
+					description = <"*Additional narrative about the multimedia supply not captured in other fields. (en)">
+				>
+				["at0010"] = <
+					text = <"*Identifier (en)">
+					description = <"*Identifier for the resource. (en)">
+				>
+				["at0012"] = <
+					text = <"*Author (en)">
+					description = <"*Details about the individual or organisation that generated or authored the resource. (en)">
+				>
+				["at0013"] = <
+					text = <"*Additional details (en)">
+					description = <"*Further details about the multimedia supply. (en)">
+				>
+				["at0014"] = <
+					text = <"*Published (en)">
+					description = <"*The time, date, partial date or period when the resource was published. (en)">
+				>
+				["at0015"] = <
+					text = <"*Version (en)">
+					description = <"*The version or edition of the resource. (en)">
+				>
+				["at0016"] = <
+					text = <"*Type of media (en)">
+					description = <"*The type of material provided. (en)">
+					comment = <"*For example: a book; brochure; patient-education leaflet; website; mobile application; video; or podcast. (en)">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Media provision (en)">
+					description = <"Detaljer om en multimediarepresentasjon av kliniske data.">
+				>
+				["at0001"] = <
+					text = <"*Content (en)">
+					description = <"*Digital representation of the resource. (en)">
+					comment = <"*The actual content provided can be captured and stored using the Multimedia data type. For example: RTF or PDF for a document; JPG for an image; MP4 for a video; or WAV for an audio file. If the content is located elsewhere the external location can be referenced using the URI data type. (en)">
+				>
+				["at0002"] = <
+					text = <"*Resource name (en)">
+					description = <"*Name or title of the multimedia resource. (en)">
+				>
+				["at0004"] = <
+					text = <"*Authored (en)">
+					description = <"*The time, date, partial date or period when the resource was generated. (en)">
+				>
+				["at0005"] = <
+					text = <"Beskrivelse">
+					description = <"*Narrative description about the resource. (en)">
+				>
+				["at0007"] = <
+					text = <"*Comment (en)">
+					description = <"*Additional narrative about the multimedia supply not captured in other fields. (en)">
+				>
+				["at0010"] = <
+					text = <"*Identifier (en)">
+					description = <"*Identifier for the resource. (en)">
+				>
+				["at0012"] = <
+					text = <"*Author (en)">
+					description = <"*Details about the individual or organisation that generated or authored the resource. (en)">
+				>
+				["at0013"] = <
+					text = <"*Additional details (en)">
+					description = <"*Further details about the multimedia supply. (en)">
+				>
+				["at0014"] = <
+					text = <"*Published (en)">
+					description = <"*The time, date, partial date or period when the resource was published. (en)">
+				>
+				["at0015"] = <
+					text = <"*Version (en)">
+					description = <"*The version or edition of the resource. (en)">
+				>
+				["at0016"] = <
+					text = <"*Type of media (en)">
+					description = <"*The type of material provided. (en)">
+					comment = <"*For example: a book; brochure; patient-education leaflet; website; mobile application; video; or podcast. (en)">
+				>
+			>
+		>
+	>
