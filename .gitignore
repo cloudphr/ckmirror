@@ -1,3 +1,13 @@
+*.oet
+*.adl
+*。sqlite
+.vscode
+.classpath
+.project
+.settings/
+target/
+bin/
+
 *.class
 *.swp
 
@@ -51,3 +61,8 @@ etc/tmp/*
 # Mac OS creates
 .DS_Store
 
+### Database files ###
+db/
+*.db
+
+### openehr ckm files ###

@@ -3,12 +3,97 @@
  */
 package cn.ac.bmi.cloudphr.ckmirror;
 
-public class App {
+import cn.ac.bmi.cloudphr.ckmirror.repository.ArchetypeInfoRepository;
+import cn.ac.bmi.cloudphr.ckmirror.repository.TemplateInfoRepository;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import me.tongfei.progressbar.*;
+
+@SpringBootApplication
+@Slf4j
+public class App implements CommandLineRunner {
+    @Autowired
+    private DataSource dataSource;
+
+    @Autowired
+    private ArchetypeInfoRepository archetypeInfoRepository;
+
+    @Autowired
+    private TemplateInfoRepository templateInfoRepository;
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(App.class, args);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        App app = new App();
+        app.getGreeting();
+        showConnection();
+        System.out.println(System.getProperty("user.dir"));
+        updateDatabase();
+    }
+
     public String getGreeting() {
         return "Hello world.";
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    private void showConnection() throws SQLException {
+        log.info(dataSource.toString());
+        Connection conn = dataSource.getConnection();
+        log.info(conn.toString());
+        conn.close();
+    }
+
+    public void updateDatabase() {
+        CKMHelper.parseCKMRepository();
+        updateArchetypes();
+        updateTemplates();
+    }
+
+    public void updateArchetypes () {
+        log.info("Archetypes update process started...");
+        for (ArchetypeInfo info : ProgressBar.wrap(CKMHelper.archetypeInfoList, "Traversing")) {
+            ArchetypeInfo archetypeInfo = archetypeInfoRepository.findByArchetypeID(info.getArchetypeID());
+            if (archetypeInfo == null || !info.getUpdatedAt().equals(archetypeInfo.getUpdatedAt())) {
+                //log.info("start downloading " + info.getArchetypeID() + "...");
+                CKMHelper.downloadFromCKM(info.getAdlPath(), info.getArchetypeID(), "adl");
+                //log.info("finish downloading " + info.getArchetypeID() + "successfully.");
+                if (archetypeInfo != null) {
+                    //log.info("delete archetypeInfo whose archetype_id is: " + info.getArchetypeID());
+                    archetypeInfoRepository.deleteByArchetypeID(info.getArchetypeID());
+                }
+                //log.info("insert into archetype_info: " + info.getArchetypeID());
+                archetypeInfoRepository.insertOne(info);
+            }
+        }
+        log.info("Archetypes update process finished...");
+    }
+
+    public void updateTemplates () {
+        log.info("Templates update process started...");
+        for (TemplateInfo info : ProgressBar.wrap(CKMHelper.templateInfoList, "Traversing")) {
+            TemplateInfo templateInfo = templateInfoRepository.findByTemplateID(info.getTemplateID());
+            if (templateInfo == null || !info.getUpdatedAt().equals(templateInfo.getUpdatedAt())) {
+                //log.info("start downloading " + info.getTemplateID() + "...");
+                CKMHelper.downloadFromCKM(info.getAdlPath(), info.getTemplateID(), "oet");
+                //log.info("finish downloading " + info.getTemplateID() + "successfully.");
+                if (templateInfo != null) {
+                    //log.info("delete templateInfo whose template_id is: " + info.getTemplateID());
+                    templateInfoRepository.deleteByTemplateID(info.getTemplateID());
+                }
+                //log.info("insert into template_info: " + info.getTemplateID());
+                templateInfoRepository.insertOne(info);
+            }
+        }
+        log.info("Templates update process finished...");
     }
 }
