@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>dd6c29c6-5aa6-4443-bd2c-0541078f9a62</id>
+  <name>Patient’s enrolment in anti-VEGF therapy</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Register the statement/s about the convenience (or not) of incorporate a patient into the long-term treatment of intravitreal injections to treat wet AMD.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.patients_admittance.v0" concept_name="Patient's admittance">
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.long_term_process_enrollment.v0" concept_name="Enrollment in a long-term healthcare process" path="/items[at0001]">
+      <Rule path="/data[at0001]/items[at0004]" default="Long-term therapy of anti-VEGF intravitreal injections" />
+      <Rule path="/data[at0001]/items[at0005]" default="Patients diagnosed with wet AMD are evaluated to see if meets the inclusion criteria into the long-term therapy of anti-VEGF intravitreal injections" />
+      <Rule path="/data[at0001]/items[at0010]">
+        <constraint xsi:type="textConstraint">
+          <includedValues>Very low VA</includedValues>
+          <includedValues>Healed lesions</includedValues>
+          <includedValues>Multimorbidity</includedValues>
+          <includedValues>Reaction to anti-VEGF</includedValues>
+          <includedValues>VA decrease</includedValues>
+          <includedValues>Morphologic deterioration</includedValues>
+        </constraint>
+      </Rule>
+    </Item>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.patients_admittance.v0">
+    <digest id="MD5-CAM-1.0.1">F95419D4DE238F22E6C6C62D31776BF7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.long_term_process_enrollment.v0">
+    <digest id="MD5-CAM-1.0.1">079F0EABA6122DE0912BD63BA7C83453</digest>
+  </integrity_checks>
+</template>

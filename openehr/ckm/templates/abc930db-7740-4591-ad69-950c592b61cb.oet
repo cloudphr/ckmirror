@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>abc930db-7740-4591-ad69-950c592b61cb</id>
+    <name>Family</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2019-09-26</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>Heather Leslie</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Atomica Informatics</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heather.leslie@atomicainformatics.com</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details>
+            <purpose>Phenotype, sample and pedigree data required for a genomic diagnosis. This element is equivalent to the Genomics England InterpretationRequestRD.</purpose>
+            <use>In many cases, genetic diagnostics of Mendelian and other disease is performed on a family basis in order to check for cosegregation of candidate variants with a disease. Usually, one family member is designated as the proband, for instance, a child affected by a genetic disease might be the proband in a family. Genomic diagnostics might involve genome sequencing of the child and his or her parents. In this case, the Family element would include a Phenopacket for the child (proband element). If the parents themselves display phenotypic findings relevant to the analysis, then Phenopackets are included for them (using the relatives element). If the parents do not display any relevant phenotypic findings, then it is not necessary to include Phenopacket elements for them. Instead, their status as unaffected can be recorded with the Pedigree element.</use>
+        </details>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>636cf380d6f95e4cd272d8832c1ddf62</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>5A82C164DFAFC11D6CA62EDC1185621D</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-CLUSTER.pp_family_framework.v0"
+        concept_name="Phenopacket family framework" name="Family"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:CLUSTER">
+        <Items
+            archetype_id="openEHR-EHR-CLUSTER.pp_phenopacket_framework.v0"
+            concept_name="Phenopacket framework" name="Relative"
+            path="/items[at0004]" xsi:type="tem:CLUSTER">
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.pp_phenotypic_feature.v0"
+                concept_name="Phenopacket phenotypic feature"
+                name="Phenotypic feature" path="/items[at0004]" xsi:type="tem:CLUSTER">
+                <Items archetype_id="openEHR-EHR-CLUSTER.pp_evidence.v0"
+                    concept_name="Phenopacket evidence" name="Evidence"
+                    path="/items[at0007]" xsi:type="tem:CLUSTER">
+                    <Items
+                        archetype_id="openEHR-EHR-CLUSTER.pp_external_reference.v0"
+                        concept_name="Phenopacket external reference"
+                        name="External reference" path="/items[at0002]" xsi:type="tem:CLUSTER"/>
+                </Items>
+            </Items>
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_disease.v0"
+                concept_name="Phenopacket disease" name="Disease"
+                path="/items[at0008]" xsi:type="tem:CLUSTER"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_variant.v0"
+                concept_name="Phenopacket variant" name="Variant"
+                path="/items[at0007]" xsi:type="tem:CLUSTER">
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_hgvsallele.v0"
+                    concept_name="Phenopacket HgvsAllele" max="4"
+                    min="1" name="HgvsAllele" path="/items[at0001]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_iscnallele.v0"
+                    concept_name="Phenopacket IscnAllele" max="4"
+                    min="1" name="IscnAllele" path="/items[at0001]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_spdiallele.v0"
+                    concept_name="Phenopacket SpdiAllele" max="4"
+                    min="1" name="SpdiAllele" path="/items[at0001]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_vcfallele.v0"
+                    concept_name="Phenopacket VcfAllele" max="4" min="1"
+                    name="VcfAllele" path="/items[at0001]" xsi:type="tem:CLUSTER"/>
+            </Items>
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_gene.v0"
+                concept_name="Phenopacket gene" name="Gene"
+                path="/items[at0006]" xsi:type="tem:CLUSTER"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_biosample.v0"
+                concept_name="Phenopacket biosample" name="Biosample"
+                path="/items[at0005]" xsi:type="tem:CLUSTER">
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_procedure.v0"
+                    concept_name="Phenopacket procedure" min="1"
+                    name="Procedure" path="/items[at0015]" xsi:type="tem:CLUSTER"/>
+            </Items>
+        </Items>
+        <Items
+            archetype_id="openEHR-EHR-CLUSTER.pp_phenopacket_framework.v0"
+            concept_name="Phenopacket framework" name="Proband"
+            path="/items[at0003]" xsi:type="tem:CLUSTER">
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.pp_phenotypic_feature.v0"
+                concept_name="Phenopacket phenotypic feature"
+                name="Phenotypic feature" path="/items[at0004]" xsi:type="tem:CLUSTER">
+                <Items archetype_id="openEHR-EHR-CLUSTER.pp_evidence.v0"
+                    concept_name="Phenopacket evidence" name="Evidence"
+                    path="/items[at0007]" xsi:type="tem:CLUSTER">
+                    <Items
+                        archetype_id="openEHR-EHR-CLUSTER.pp_external_reference.v0"
+                        concept_name="Phenopacket external reference"
+                        name="External reference" path="/items[at0002]" xsi:type="tem:CLUSTER"/>
+                </Items>
+            </Items>
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_disease.v0"
+                concept_name="Phenopacket disease" name="Disease"
+                path="/items[at0008]" xsi:type="tem:CLUSTER"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_variant.v0"
+                concept_name="Phenopacket variant" name="Variant"
+                path="/items[at0007]" xsi:type="tem:CLUSTER">
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_hgvsallele.v0"
+                    concept_name="Phenopacket HgvsAllele" max="4"
+                    min="1" name="HgvsAllele" path="/items[at0001]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_iscnallele.v0"
+                    concept_name="Phenopacket IscnAllele" max="4"
+                    min="1" name="IscnAllele" path="/items[at0001]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_spdiallele.v0"
+                    concept_name="Phenopacket SpdiAllele" max="4"
+                    min="1" name="SpdiAllele" path="/items[at0001]" xsi:type="tem:CLUSTER"/>
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_vcfallele.v0"
+                    concept_name="Phenopacket VcfAllele" max="4" min="1"
+                    name="VcfAllele" path="/items[at0001]" xsi:type="tem:CLUSTER"/>
+            </Items>
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_gene.v0"
+                concept_name="Phenopacket gene" name="Gene"
+                path="/items[at0006]" xsi:type="tem:CLUSTER"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_biosample.v0"
+                concept_name="Phenopacket biosample" name="Biosample"
+                path="/items[at0005]" xsi:type="tem:CLUSTER">
+                <Items
+                    archetype_id="openEHR-EHR-CLUSTER.pp_procedure.v0"
+                    concept_name="Phenopacket procedure" min="1"
+                    name="Procedure" path="/items[at0015]" xsi:type="tem:CLUSTER"/>
+            </Items>
+        </Items>
+        <Items archetype_id="openEHR-EHR-CLUSTER.pp_pedigree.v0"
+            concept_name="Phenopackets pedigree" name="Pedigree"
+            path="/items[at0005]" xsi:type="tem:CLUSTER">
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_person.v0"
+                concept_name="Phenopackets person" name="Person"
+                path="/items[at0001]" xsi:type="tem:CLUSTER"/>
+        </Items>
+        <Items archetype_id="openEHR-EHR-CLUSTER.pp_htsfile.v0"
+            concept_name="Phenopacket HtsFile" name="HtsFile"
+            path="/items[at0006]" xsi:type="tem:CLUSTER"/>
+        <Items archetype_id="openEHR-EHR-CLUSTER.pp_metadata.v0"
+            concept_name="Phenopacket MetaData" name="MetaData"
+            path="/items[at0007]" xsi:type="tem:CLUSTER">
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_resource.v0"
+                concept_name="Phenopacket resource" name="Resource"
+                path="/items[at0004]" xsi:type="tem:CLUSTER"/>
+            <Items archetype_id="openEHR-EHR-CLUSTER.pp_update.v0"
+                concept_name="Phenopacket update" name="Update"
+                path="/items[at0005]" xsi:type="tem:CLUSTER"/>
+            <Items
+                archetype_id="openEHR-EHR-CLUSTER.pp_external_reference.v0"
+                concept_name="Phenopacket external reference"
+                name="External reference" path="/items[at0007]" xsi:type="tem:CLUSTER"/>
+        </Items>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.pp_family_framework.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">5A82C164DFAFC11D6CA62EDC1185621D</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.pp_phenopacket_framework.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9BE3F8F0DFED663A22D1D73600BA675E</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.pp_phenotypic_feature.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">E9291020A69DDE3E146C4E2851A40437</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_evidence.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">C93B231A5DE329160392FAAA5E417D13</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.pp_external_reference.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">614B97174F6B13CB116746ED94F36DC8</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_disease.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">F56E9E7DCC9DF6817240BE1EEF89DCB6</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_variant.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">83F03F938F5F65DDEDDB489A2617D79E</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.pp_hgvsallele.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">2FFCB28B58400584C875186C26AC9BFA</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.pp_iscnallele.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">18A39E90706B58785C26F922EA673337</digest>
+    </integrity_checks>
+    <integrity_checks
+        archetype_id="openEHR-EHR-CLUSTER.pp_spdiallele.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9F513AD41E5D638C8CCC85E35FB18EAD</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_vcfallele.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9CF3ECE7821FA2607BF16DE9F4CCCDC3</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_gene.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">3204CB9495CA04A1BE0354BF28452520</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_biosample.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">DAF8772578930B5C7EF35C9382FCACDC</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_procedure.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">1016D6B3A5839735994155A5E069D6C1</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_pedigree.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">3711250919F83DD154911E91CE88EB04</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_person.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">EB4BA3B85BDF8FE07CE7AF2F9DC7EFE0</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_htsfile.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">BBA0FCB5CC8A2003B542B2399D7539AE</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_metadata.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">7DB92D52EAFF65DC390551B5C4A0D189</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_resource.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">4C2754EBDFB70D9786DAD374C9A72277</digest>
+    </integrity_checks>
+    <integrity_checks archetype_id="openEHR-EHR-CLUSTER.pp_update.v0"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">C4D130FF01F4BE48A4380E59D772D396</digest>
+    </integrity_checks>
+</template>

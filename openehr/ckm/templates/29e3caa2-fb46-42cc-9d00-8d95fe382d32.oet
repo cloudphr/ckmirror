@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>29e3caa2-fb46-42cc-9d00-8d95fe382d32</id>
+  <name>CG assessment</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Aitor Eguzkitza</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Universidad Pública de Navarra - Complejo Hospitalario de Navarra</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2016-07-24</value>
+      </item>
+    </original_author>
+    <other_contributors>
+      <item>Jose Andonegui, Complejo hospitalario de Navarra (CHN), jose.andonegui.navarro@cfnavarra.es</item>
+      <item>Luis Serrano, Universidad Pública de Navarra (UPNA), lserrano@unavarra.es</item>
+      <item>Jesús D. Trigo, Universidad Pública de Navarra (UPNA), jesusdaniel.trigo@unavarra.es</item>
+    </other_contributors>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Overall assessment of diagnostic tests to identify the slightest sign of progression of chronic glaucoma, and recommend an appropriate therapy accordingly.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1" concept_name="Result Report">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.image_test_analysis.v0" template_id="a2bf5c47-85fa-4e66-9985-ca9e2fd9e1c2" concept_name="Image test analysis" path="/content" />
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.clinical_decision.v0" template_id="122ca917-f7de-49cc-a6e0-9644ae05b46d" concept_name="Classification and treatment of glaucoma" path="/content" />
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.next_step_planning.v0" template_id="e639b63d-4872-4f4d-900f-eb68eca2686e" concept_name="Next step in CG follow-up service" path="/content" />
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.report-result.v1">
+    <digest id="MD5-CAM-1.0.1">1853F80CFF69F14444CF1C21D9A64834</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.image_test_analysis.v0">
+    <digest id="MD5-CAM-1.0.1">E25495BF0F0078F70D2AEE3F135396E6</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.visual_field_measurement.v1">
+    <digest id="MD5-CAM-1.0.1">AD0AF52EC0B9C0BFA404538C7C818C1E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.fundoscopic_examination.v1">
+    <digest id="MD5-CAM-1.0.1">54CEC25E4EBE02E57C1B9531D64B70F1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.ophthalmic_tomography_examination.v0">
+    <digest id="MD5-CAM-1.0.1">33DBFA0E999AE69E58C22EE92971FCD4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.clinical_decision.v0">
+    <digest id="MD5-CAM-1.0.1">056DF1853E24035FC9EF49BA2316AFCF</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1">
+    <digest id="MD5-CAM-1.0.1">2D066E7C501C2DAEC625DEE2ECD81DF4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.problem_diagnosis.v1">
+    <digest id="MD5-CAM-1.0.1">88AF7BC619F0DF958D2F00293756F398</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.classification_glaucoma.v0">
+    <digest id="MD5-CAM-1.0.1">FC54ED2EEF75B96AB798192422151891</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.findings_glaucoma.v0">
+    <digest id="MD5-CAM-1.0.1">40DCF9A32A8A44CF1623EAC15B60EC48</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.contraindication.v0">
+    <digest id="MD5-CAM-1.0.1">CDF8AF81E0938F0E8E24D6AADE400E8A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.recommendation.v1">
+    <digest id="MD5-CAM-1.0.1">53979D460E70C43C73C177E158DF08AC</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.next_step_planning.v0">
+    <digest id="MD5-CAM-1.0.1">9D5EB3A8E67BDF2E23AF01E27214BC37</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request-report.v1">
+    <digest id="MD5-CAM-1.0.1">471E4F9B213608AEEFD868B5459F06D3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request.v0">
+    <digest id="MD5-CAM-1.0.1">C181B6C9E379899299B8FB6559E37388</digest>
+  </integrity_checks>
+</template>

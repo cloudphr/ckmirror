@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>6b07a692-8fcc-4993-8e02-8ce530d20c8b</id>
+  <name>Evaluation of the remote assessment model for wet AMD</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Register the time spent on examination of diagnostic tests to determine a therapeutic decision for patients diagnosed with wet AMD.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.analyze_encounter.v0" concept_name="Analysis of clinical encounter">
+    <Item xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.procedure_efficiency.v0" concept_name="Efficiency of healthcare procedure" path="/items[at0001]">
+      <Rule path="/data[at0001]/items[at0002]" default="Remote assessment of progression for wet AMD" />
+      <Rule path="/data[at0001]/items[at0009]" max="0" />
+    </Item>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.analyze_encounter.v0">
+    <digest id="MD5-CAM-1.0.1">23381FB543752DF640F8E2E3CDA9313E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ADMIN_ENTRY.procedure_efficiency.v0">
+    <digest id="MD5-CAM-1.0.1">A181ADC42EB4FE8B8B2D7EDDADCD9190</digest>
+  </integrity_checks>
+</template>

@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>d74bf2ad-b656-4411-b7ac-d42a6b55aaae</id>
+  <name>Clinical image acquisition and validation NMR</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Aitor Eguzkitza</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Universidad Pública de Navarra - Complejo Hospitalario de Navarra</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2016-07-20</value>
+      </item>
+    </original_author>
+    <other_contributors>
+      <item>Jose Andonegui, Complejo hospitalario de Navarra (CHN), jose.andonegui.navarro@cfnavarra.es</item>
+      <item>Luis Serrano, Universidad Pública de Navarra (UPNA), lserrano@unavarra.es</item>
+      <item>Jesús D. Trigo, Universidad Pública de Navarra (UPNA), jesusdaniel.trigo@unavarra.es</item>
+    </other_contributors>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Register the acquisition and subsequent examination of non-mydriatic retinography test.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.clinical_image_acquisition.v0" concept_name="Clinical image acquisition and validation" max="1" name="Clinical image acquisition and validation NMR">
+    <Item xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.imaging_exam.v1" concept_name="Imaging examination" path="/items[at0001]">
+      <Rule path="/description[at0001]/items[at0017]" default="Eye fundus examination" />
+      <Rule path="/description[at0001]/items[at0018]" default="Carry out the funduscopic examination of eyes." />
+      <Rule path="/description[at0001]/items[at0019]">
+        <constraint xsi:type="textConstraint">
+          <includedValues>DR screening</includedValues>		
+          <includedValues>Assessment of wet AMD</includedValues>
+          <includedValues>Monitor the progression of chronic glaucoma</includedValues>
+        </constraint>
+      </Rule>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1" concept_name="Anatomical location" path="/description[at0001]/items[at0022]">
+        <Rule path="/items[at0001]" default="Eye fundus" />
+        <Rule path="/items[at0065]">
+          <constraint xsi:type="textConstraint">
+            <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Subdivision of retina" />
+          </constraint>
+        </Rule>
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mydriasis_application.v0" concept_name="Mydriasis application" path="/description[at0001]/items[at0021]">
+        <Rule path="/items[at0001]">
+          <constraint xsi:type="textConstraint">
+            <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Mydriatic agents" />
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0004]" max="0" />
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.medication_supply_amount.v0" concept_name="Medication supply amount" path="/items[at0002]">
+          <Rule path="/items[at0158]" max="0" />
+          <Rule path="/items[at0159]" max="0" />
+          <Rule path="/items[at0160]" max="0" />
+        </Items>
+      </Items>
+    </Item>
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.fundoscopic_examination.v1" concept_name="Fundoscopic examination of eyes" path="/items[at0003]">
+      <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0136]/items[at0051]/items[at0128]">
+        <constraint xsi:type="textConstraint">
+          <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Complications on ophthalmic image acquisition" />
+        </constraint>
+      </Rule>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device.v1" concept_name="Medical Device" path="/protocol[at0028]/items[at0089]">
+        <Rule path="/items[at0001]">
+          <constraint xsi:type="textConstraint">
+            <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Ophthalmic photography devices" />
+          </constraint>
+        </Rule>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device_details.v1" concept_name="Medical device details" path="/items[at0026]" />
+      </Items>
+    </Item>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.clinical_image_acquisition.v0">
+    <digest id="MD5-CAM-1.0.1">79F44C39B0B2D59D57D1F5530F17950A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.imaging_exam.v1">
+    <digest id="MD5-CAM-1.0.1">D232231706137B7882AC0145E72C3751</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.anatomical_location.v1">
+    <digest id="MD5-CAM-1.0.1">910D849C4514BA7DB4D5812F30AF63D6</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.mydriasis_application.v0">
+    <digest id="MD5-CAM-1.0.1">20316CD1A8B83167F6938B68F7CD7841</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.medication_supply_amount.v0">
+    <digest id="MD5-CAM-1.0.1">06CF3E9489AF6D497D85F3A0EDEC0EC7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.fundoscopic_examination.v1">
+    <digest id="MD5-CAM-1.0.1">54CEC25E4EBE02E57C1B9531D64B70F1</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.device.v1">
+    <digest id="MD5-CAM-1.0.1">F09649C839F331ADA3FA32CD0F42B5A5</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.device_details.v1">
+    <digest id="MD5-CAM-1.0.1">C9F9BBE3231A684F081712B4B291C709</digest>
+  </integrity_checks>
+</template>

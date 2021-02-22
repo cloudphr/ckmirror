@@ -57,3 +57,8 @@ etc/tmp/*
 # Mac OS creates
 .DS_Store
 
+### Database files ###
+db/
+*.db
+
+### openehr ckm files ###

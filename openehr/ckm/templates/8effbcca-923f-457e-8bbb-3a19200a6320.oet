@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>8effbcca-923f-457e-8bbb-3a19200a6320</id>
+  <name>Clinical image acquisition and validation OCT</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Aitor Eguzkitza</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Universidad Pública de Navarra - Complejo Hospitalario de Navarra</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2016-07-20</value>
+      </item>
+    </original_author>
+    <other_contributors>
+      <item>jose.andonegui.navarro@cfnavarra.es</item>
+      <item>Luis Serrano, Universidad Pública de Navarra (UPNA), lserrano@unavarra.es</item>
+      <item>Jesús D. Trigo, Universidad Pública de Navarra (UPNA), jesusdaniel.trigo@unavarra.es</item>
+    </other_contributors>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Register the acquisition and subsequent examination of ophthalmic tomography test.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.clinical_image_acquisition.v0" concept_name="Clinical image acquisition and validation" max="1" name="Clinical image acquisition and validation OCT">
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.ophthalmic_tomography_examination.v0" concept_name="Ophthalmic tomography examination" path="/items[at0003]">
+      <Rule path="/data[at0001]/events[at0002]/data[at0008]/items[at0039]/items[at0045]">
+        <constraint xsi:type="textConstraint">
+          <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Anatomic structures of eye" />
+        </constraint>
+      </Rule>
+      <Rule path="/data[at0001]/events[at0002]/data[at0008]/items[at0039]/items[at0090]/items[at0091]">
+        <constraint xsi:type="textConstraint">
+          <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Ophthalmic photography devices" />
+        </constraint>
+      </Rule>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device.v1" concept_name="Medical Device" path="/protocol[at0004]/items[at0011]">
+        <Rule path="/items[at0001]">
+          <constraint xsi:type="textConstraint">
+            <termQueryId terminologyID="Snomed" terminologyLang="en-GB" queryName="Ophthalmic tomography acquisition device" />
+          </constraint>
+        </Rule>
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.device_details.v1" concept_name="Medical device details" path="/items[at0026]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.acquisition_details_on_ophthalmic_tomography.v0" concept_name="Acquisition details on ophthalmic tomography" path="/protocol[at0004]/items[at0252]" />
+    </Item>
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.clinical_image_acquisition.v0">
+    <digest id="MD5-CAM-1.0.1">79F44C39B0B2D59D57D1F5530F17950A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.ophthalmic_tomography_examination.v0">
+    <digest id="MD5-CAM-1.0.1">33DBFA0E999AE69E58C22EE92971FCD4</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.device.v1">
+    <digest id="MD5-CAM-1.0.1">F09649C839F331ADA3FA32CD0F42B5A5</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.device_details.v1">
+    <digest id="MD5-CAM-1.0.1">C9F9BBE3231A684F081712B4B291C709</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.acquisition_details_on_ophthalmic_tomography.v0">
+    <digest id="MD5-CAM-1.0.1">78FFDA0B88BFDE3BAC71DD3666150F90</digest>
+  </integrity_checks>
+</template>

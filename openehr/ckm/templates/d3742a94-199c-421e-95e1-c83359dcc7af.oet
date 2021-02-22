@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>d3742a94-199c-421e-95e1-c83359dcc7af</id>
+  <name>ODL Report EMPOWER</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Collecting Observations of Daily Living</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.empower_odl.v0" concept_name="ODL (EMPOWER)" name="Odls">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.empower_physical_exercises.v0" concept_name="Physical Activity (EMPOWER)" path="/content[at0002]" />
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.empower_meal.v0" concept_name="Meal (EMPOWER)" path="/content[at0002]" />
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.empower_sleep.v0" concept_name="Sleep (EMPOWER)" path="/content[at0002]">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.symptom.v1" concept_name="*Symptom(en)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0025]">
+        <Rule path="/items[at0001]" name="Symptom name">
+          <constraint xsi:type="textConstraint">
+            <includedValues>I was thirsty</includedValues>
+            <includedValues>I had restless legs</includedValues>
+            <includedValues>I was sweating</includedValues>
+            <includedValues>I woke up being hungry</includedValues>
+            <includedValues>I was snoring a lot</includedValues>
+            <includedValues>I woke up after stopped breathing several times</includedValues>
+            <includedValues>I have been in pain - feet, sole of the feet, calf of the leg, elsewhere?</includedValues>
+            <includedValues>I had to urinate several times</includedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/items[at0035]" max="0" />
+        <Rule path="/items[at0002]" max="0" />
+        <Rule path="/items[at0151]" max="0" />
+        <Rule path="/items[at0152]" max="0" />
+        <Rule path="/items[at0028]" max="0" />
+        <Rule path="/items[at0021]" max="0" />
+        <Rule path="/items[at0026]" max="0" />
+        <Rule path="/items[at0155]" max="0" />
+        <Rule path="/items[at0003]" max="0" />
+        <Rule path="/items[at0037]" max="0" />
+        <Rule path="/items[at0161]" max="0" />
+        <Rule path="/items[at0057]" max="0" />
+        <Rule path="/items[at0018]" max="0" />
+        <Rule path="/items[at0031]" max="0" />
+        <Rule path="/items[at0163]" max="0" />
+      </Items>
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.empower_mood.v0" concept_name="Mood (EMPOWER)" path="/content[at0002]">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.empower_mood.v0" concept_name="Mood Level (EMPOWER)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0019]" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.empower_stress.v0" concept_name="Stress (EMPOWER)" path="/content[at0002]">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.empower_stress.v0" concept_name="Stress Level (EMPOWER)" path="/data[at0001]/events[at0002]/data[at0003]/items[at0024]" />
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.empower_odl.v0">
+    <digest id="MD5-CAM-1.0.1">F97815033DDF6ED3BC2EB4298F9B9895</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.empower_physical_exercises.v0">
+    <digest id="MD5-CAM-1.0.1">C9D41E19AB6544A31D3B85EC346E02A7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.empower_meal.v0">
+    <digest id="MD5-CAM-1.0.1">A893F4BC3F4CA164E77D808FBC147821</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.empower_sleep.v0">
+    <digest id="MD5-CAM-1.0.1">0E6471220A37C0E9D62A4BB5FCC52078</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.symptom.v1">
+    <digest id="MD5-CAM-1.0.1">97849ECA9BC1F7A69713499C5C5D5F96</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.empower_mood.v0">
+    <digest id="MD5-CAM-1.0.1">C4C41ADCE0CC28BE123746D04D5DE34F</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.empower_mood.v0">
+    <digest id="MD5-CAM-1.0.1">90A42F385EBC2C7064B5945A0466525A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.empower_stress.v0">
+    <digest id="MD5-CAM-1.0.1">11AC37BAB99DEA4547D0C1F1FBBD1CDF</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.empower_stress.v0">
+    <digest id="MD5-CAM-1.0.1">706605CBDFA44C71BC332556F646D0FB</digest>
+  </integrity_checks>
+</template>

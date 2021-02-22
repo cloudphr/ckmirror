@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>6e71cfb1-bcf7-4565-8348-a23c46d7642f</id>
+  <name>Patient's admittance in DR screening service</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Aitor Eguzkitza</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Universidad Pública de Navarra - Complejo Hospitalario de Navarra</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2015-10-19</value>
+      </item>
+    </original_author>
+    <other_contributors>
+      <item>José Andonegui, Hospital de Navarra, jose.andonegui.navarro@cfnavarra.es</item>
+      <item>Luis Serrano, Universidad Pública de Navarra (UPNA), lserrano@unavarra.es</item>
+      <item>Jesús D. Trigo, Universidad Pública de Navarra (UPNA), jesusdaniel.trigo@unavarra.es</item>
+    </other_contributors>
+    <lifecycle_state>in_development</lifecycle_state>
+    <details>
+      <purpose>Check if patient meets the criteria to be included into a clinical process.</purpose>
+      <keywords />
+      <use>To determine whether a patient meets the criteria to be included into DR screening service.</use>
+      <misuse />
+      <copyright>© openEHR Foundation</copyright>
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.patients_admittance.v0" concept_name="Patient's admittance">
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.dr_screening_convenient.v0" concept_name="DR screening convenient" path="/items[at0001]" />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.patients_admittance.v0">
+    <digest id="MD5-CAM-1.0.1">3521E894B5BF3E99CC8643AB071260EB</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.dr_screening_convenient.v0">
+    <digest id="MD5-CAM-1.0.1">B399B1D5D0F38AA080B85C5C849EAA00</digest>
+  </integrity_checks>
+</template>

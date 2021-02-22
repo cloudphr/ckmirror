@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>59d833f5-566a-4c7b-9d23-4f60599c1dcf</id>
+    <name>Goal item R2</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Heather Leslie</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Atomica Informatics</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heather.leslie@atomicainformatics.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-07-13</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value/>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value/>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>77447632FB0C7DD8514AA96ABEF643EB</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>9965b34f16302c0df1dbcd9ef80931f1</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-EVALUATION.goal.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule max="0" path="/data[at0001]/items[at0003]"/>
+        <Rule max="0" path="/data[at0001]/items[at0004]"/>
+        <Rule max="0" path="/data[at0001]/items[at0022]"/>
+        <Rule name="Per target" path="/data[at0001]/items[at0005]"/>
+        <Rule max="0" path="/data[at0001]/items[at0005]/items[at0007]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Duration</includedTypes>
+                <includedTypes>Quantity</includedTypes>
+                <includedTypes>Count</includedTypes>
+                <includedTypes>Proportion</includedTypes>
+                <includedTypes>Text</includedTypes>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0005]/items[at0006]"/>
+        <Rule max="0" path="/data[at0001]/items[at0005]/items[at0008]"/>
+        <Rule max="0" path="/data[at0001]/items[at0005]/items[at0009]"/>
+        <Rule max="0" path="/data[at0001]/items[at0005]/items[at0018]">
+            <constraint xsi:type="tem:multipleConstraint">
+                <includedTypes>Text</includedTypes>
+                <includedTypes>Coded_text</includedTypes>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0005]/items[at0023]"/>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.goal.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">77447632FB0C7DD8514AA96ABEF643EB</digest>
+    </integrity_checks>
+</template>

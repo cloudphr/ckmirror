@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>89bbdbb9-c40d-452c-917e-33a0a1e7f4de</id>
+  <name>Next step: remote assessment or schedule additional diagnostic tests</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Aitor Eguzkitza</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Universidad Pública de Navarra - Complejo Hospitalario de Navarra</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2016-07-20</value>
+      </item>
+    </original_author>
+    <other_contributors>
+      <item>jose.andonegui.navarro@cfnavarra.es</item>
+      <item>Luis Serrano, Universidad Pública de Navarra (UPNA), lserrano@unavarra.es</item>
+      <item>Jesús D. Trigo, Universidad Pública de Navarra (UPNA), jesusdaniel.trigo@unavarra.es</item>
+    </other_contributors>  
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Determine whether diagnostic tests carried out so far are sufficient for a remote assessment, or there is need for additional information.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.next_step_planning.v0" concept_name="Next step planning">
+    <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-report.v1" concept_name="Diagnostic report request" path="/items[at0002]">
+      <Rule path="/activities[at0001]/description[at0009]/items[at0121]" default="Remote assessment of wet AMD" />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0135]" default="Remote assessment of visual acuity, eye fundus examinarion and ophthalmic tomography by an retinologist, to determine the effectiveness of the treatment of wet AMD." />
+      <Rule path="/activities[at0001]/description[at0009]/items[at0062]" default="Assessment of wet AMD" />
+    </Item>
+    <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.request-referral.v1" concept_name="Referral request" path="/items[at0003]" />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.next_step_planning.v0">
+    <digest id="MD5-CAM-1.0.1">877EB6DEB9732798848064A1B7FB02D3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request-report.v1">
+    <digest id="MD5-CAM-1.0.1">471E4F9B213608AEEFD868B5459F06D3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request-referral.v1">
+    <digest id="MD5-CAM-1.0.1">25C16B28A60F9903D55831244227C979</digest>
+  </integrity_checks>
+</template>

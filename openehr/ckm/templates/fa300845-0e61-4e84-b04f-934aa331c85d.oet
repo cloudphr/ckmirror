@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>fa300845-0e61-4e84-b04f-934aa331c85d</id>
+  <name>DR treatment</name>
+  <description>
+    <original_author>
+      <item>
+        <key>name</key>
+        <value>Aitor Eguzkitza</value>
+      </item>
+      <item>
+        <key>organisation</key>
+        <value>Universidad Pública de Navarra - Complejo Hospitalario de Navarra</value>
+      </item>
+      <item>
+        <key>email</key>
+        <value>aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>date</key>
+        <value>2016-07-28</value>
+      </item>
+    </original_author>
+    <other_contributors>
+      <item>Jose Andonegui, Complejo hospitalario de Navarra (CHN), jose.andonegui.navarro@cfnavarra.es</item>
+      <item>Luis Serrano, Universidad Pública de Navarra (UPNA), lserrano@unavarra.es</item>
+      <item>Jesús D. Trigo, Universidad Pública de Navarra (UPNA), jesusdaniel.trigo@unavarra.es</item>
+    </other_contributors>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Schedule and register the outcomes of the treatment chosen for each case identified of patients presenting diabetic retinopathy.</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value>© openEHR Foundation</value>
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value>Aitor Eguzkitza, aitor.eguzkiza@unavarra.es</value>
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value>Ophthalmology</value>
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.progress_note.v1" concept_name="Progress Note">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.intraocular_injection.v0" template_id="f50febc0-6e54-4303-a3b5-20332ff2b1b2" concept_name="Intraocular injection" path="/content" />
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.laser.v0" template_id="72de0518-a0e0-467d-a8af-0cfc1cdc9f83" concept_name="Laser procedures to treat DR" path="/content" />
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.surgery_procedure.v0" template_id="72c9609d-350c-4297-b23c-dfa8a1bf3631" concept_name="Surgical procedures to treat DR" path="/content" />
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.progress_note.v1">
+    <digest id="MD5-CAM-1.0.1">8B4B47A6D77BE7AD1E821306C1B1A03B</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.intraocular_injection.v0">
+    <digest id="MD5-CAM-1.0.1">78E345F8B4E8B318F90A5A2A9ABBFCB0</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.medication_order.v0">
+    <digest id="MD5-CAM-1.0.1">6B5A7E7C137E9AC00A52EE9481BEC73E</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.intravitreal_injection_details.v0">
+    <digest id="MD5-CAM-1.0.1">F618898F7B3503AA482C4B6195535636</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.medication.v0">
+    <digest id="MD5-CAM-1.0.1">E7FAC74F77BE12D6EDD689E76DB3B787</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.adverse_reaction_risk.v1">
+    <digest id="MD5-CAM-1.0.1">17B34210A4047512C96E82E23E71F19C</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.laser.v0">
+    <digest id="MD5-CAM-1.0.1">E185D2071B59EB62E1BAE584EF349AE7</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-INSTRUCTION.request-procedure.v0">
+    <digest id="MD5-CAM-1.0.1">52B8333D9A8C5300DA91B7581DAB7005</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.ophthalmic_laser_details.v0">
+    <digest id="MD5-CAM-1.0.1">9A36C918CE8137A4516F75AB6096E44A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.procedure.v1">
+    <digest id="MD5-CAM-1.0.1">232D4A2B8E6A250F5D3A715FBE564726</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-SECTION.surgery_procedure.v0">
+    <digest id="MD5-CAM-1.0.1">E4B6946D1D6B7F00ADA61A23F620AD58</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.ophthalmic_surgery_details_for_posterior_segment_of_eye.v0">
+    <digest id="MD5-CAM-1.0.1">C7204C677242410C8AF623AA0D80398E</digest>
+  </integrity_checks>
+</template>

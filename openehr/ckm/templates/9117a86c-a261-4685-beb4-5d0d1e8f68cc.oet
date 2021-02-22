@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>9117a86c-a261-4685-beb4-5d0d1e8f68cc</id>
+    <name>Education summary item R2</name>
+    <description>
+        <original_author>
+            <item>
+                <key>name</key>
+                <value>Heather Leslie</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Atomica Informatics</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heather.leslie@atomicainformatics.com</value>
+            </item>
+            <item>
+                <key>date</key>
+                <value>2020-02-28</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>6422df058136f0a7d95451616fc7251a</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>9C135A8C3829B565B14265E91391DCBD</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition
+        archetype_id="openEHR-EHR-EVALUATION.education_summary.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule max="0" path="/data[at0001]/items[at0003]">
+            <constraint xsi:type="tem:durationConstraint">
+                <pattern>PYM</pattern>
+                <minMagnitude>P0Y</minMagnitude>
+                <includesMaximum>false</includesMaximum>
+                <includesMinimum>true</includesMinimum>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0031]">
+            <constraint xsi:type="tem:durationConstraint">
+                <pattern>PYM</pattern>
+                <minMagnitude>P0Y</minMagnitude>
+                <includesMaximum>false</includesMaximum>
+                <includesMinimum>true</includesMinimum>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0001]/items[at0007]"/>
+    </definition>
+    <integrity_checks
+        archetype_id="openEHR-EHR-EVALUATION.education_summary.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">9C135A8C3829B565B14265E91391DCBD</digest>
+    </integrity_checks>
+</template>

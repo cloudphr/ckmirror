@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="openEHR/v1/Template">
+    <id>56b82098-69c6-49ee-94ed-f24d99f81624</id>
+    <name>Gender item R1</name>
+    <description>
+        <original_author>
+            <item>
+                <key>date</key>
+                <value>2020-02-24</value>
+            </item>
+            <item>
+                <key>name</key>
+                <value>Heather Leslie</value>
+            </item>
+            <item>
+                <key>organisation</key>
+                <value>Atomica Informatics</value>
+            </item>
+            <item>
+                <key>email</key>
+                <value>heather.leslie@atomicainformatics.com</value>
+            </item>
+        </original_author>
+        <lifecycle_state>unmanaged</lifecycle_state>
+        <details/>
+        <other_details>
+            <item>
+                <key>licence</key>
+                <value>This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/.</value>
+            </item>
+            <item>
+                <key>custodian_organisation</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>original_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>original_publisher</key>
+                <value>openEHR Foundation</value>
+            </item>
+            <item>
+                <key>custodian_namespace</key>
+                <value>org.openehr</value>
+            </item>
+            <item>
+                <key>MD5-CAM-1.0.1</key>
+                <value>42b42a592420e4daaa35dc0c9ce8520a</value>
+            </item>
+            <item>
+                <key>PARENT:MD5-CAM-1.0.1</key>
+                <value>EF681A049575CDCED3F513DFE65343E9</value>
+            </item>
+            <item>
+                <key>original_language</key>
+                <value>ISO_639-1::en</value>
+            </item>
+        </other_details>
+    </description>
+    <definition archetype_id="openEHR-EHR-EVALUATION.gender.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:EVALUATION">
+        <Rule max="0" path="/data[at0002]/items[at0022]"/>
+        <Rule max="0" path="/data[at0002]/items[at0026]"/>
+        <Rule name="Birth sex" path="/data[at0002]/items[at0019]">
+            <constraint xsi:type="tem:textConstraint">
+                <includedValues>Male</includedValues>
+                <includedValues>Female</includedValues>
+                <includedValues>Intersex</includedValues>
+            </constraint>
+        </Rule>
+        <Rule max="0" path="/data[at0002]/items[at0025]"/>
+        <Rule max="0" path="/data[at0002]/items[at0001]"/>
+        <Rule max="0" path="/data[at0002]/items[at0020]"/>
+        <Rule max="0" path="/data[at0002]/items[at0014]"/>
+    </definition>
+    <integrity_checks archetype_id="openEHR-EHR-EVALUATION.gender.v1"
+        xmlns:tem="openEHR/v1/Template"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tem:ArchetypeIntegrity">
+        <digest id="MD5-CAM-1.0.1">EF681A049575CDCED3F513DFE65343E9</digest>
+    </integrity_checks>
+</template>
