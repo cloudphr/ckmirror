@@ -2,8 +2,18 @@
 
 > Tools to store the latest OpenEHR ckm archetypes and templates and provide corresponding download service
 
-1. download the latest OpenEHR ckm archetypes and templates.
+![Build Status](https://github.com/cloudphr/ckmirror/workflows/Build/badge.svg)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cloudphr_ckmirror&metric=alert_status)](https://sonarcloud.io/dashboard?id=cloudphr_ckmirror)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=cloudphr_ckmirror&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=cloudphr_ckmirror)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=cloudphr_ckmirror&metric=security_rating)](https://sonarcloud.io/dashboard?id=cloudphr_ckmirror)
 
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=cloudphr_ckmirror&metric=ncloc)](https://sonarcloud.io/dashboard?id=cloudphr_ckmirror)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=cloudphr_ckmirror&metric=coverage)](https://sonarcloud.io/dashboard?id=cloudphr_ckmirror)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=cloudphr_ckmirror&metric=bugs)](https://sonarcloud.io/dashboard?id=cloudphr_ckmirror)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=cloudphr_ckmirror&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=cloudphr_ckmirror)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=cloudphr_ckmirror&metric=code_smells)](https://sonarcloud.io/dashboard?id=cloudphr_ckmirror)
+
+1. download the latest OpenEHR ckm archetypes and templates.
     - The url of CKMRepository is stored in a configuration file.
     - the local dir that stores the archetypes and templates.
     
