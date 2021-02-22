@@ -1,8 +1,12 @@
+*.oet
+*.adl
+*。sqlite
 .vscode
 .classpath
 .project
 .settings/
 target/
+bin/
 
 *.class
 *.swp
